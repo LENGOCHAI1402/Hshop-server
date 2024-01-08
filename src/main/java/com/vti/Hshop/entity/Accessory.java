@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import java.time.LocalDate;
+
 @Setter
 @Getter
 @Entity
@@ -28,6 +30,8 @@ public class Accessory {
     @Column(name = "repair_status", length = 50, nullable = false)
     private String repairStatus;
 
+    @Setter
+    @Getter
     @ManyToOne
     @JoinColumns(value = {
             @JoinColumn(
@@ -43,5 +47,4 @@ public class Accessory {
     })
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Car car;
-
 }
